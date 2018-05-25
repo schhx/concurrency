@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @date 2018-05-22
  */
 @Slf4j
-public class AtomicDemo5 {
+public class AtomicReferenceDemo {
 
     private static AtomicReference<Integer> atomicReference = new AtomicReference<>(0);
 

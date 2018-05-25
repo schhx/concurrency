@@ -3,22 +3,20 @@ package org.schhx.concurrency.demo.atomic;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 /**
  * @author shanchao
  * @date 2018-05-22
  */
 @Slf4j
-public class AtomicDemo6 {
+public class AtomicIntegerFieldUpdaterDemo {
 
-    private static AtomicIntegerFieldUpdater<AtomicDemo6> updater = AtomicIntegerFieldUpdater.newUpdater(AtomicDemo6.class, "value");
+    private static AtomicIntegerFieldUpdater<AtomicIntegerFieldUpdaterDemo> updater = AtomicIntegerFieldUpdater.newUpdater(AtomicIntegerFieldUpdaterDemo.class, "value");
 
     private volatile int value = 0;
 
     public static void main(String[] args) {
-        AtomicDemo6 atomicDemo6 = new AtomicDemo6();
+        AtomicIntegerFieldUpdaterDemo atomicDemo6 = new AtomicIntegerFieldUpdaterDemo();
         updater.compareAndSet(atomicDemo6, 0, 2);
         updater.compareAndSet(atomicDemo6, 1, 3);
         updater.compareAndSet(atomicDemo6, 2, 4);

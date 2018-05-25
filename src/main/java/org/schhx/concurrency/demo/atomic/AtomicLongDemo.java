@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.schhx.concurrency.anno.ThreadSafe;
 import org.schhx.concurrency.demo.BasicTest;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author shanchao
@@ -12,9 +12,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Slf4j
 @ThreadSafe
-public class AtomicDemo1 extends BasicTest {
+public class AtomicLongDemo extends BasicTest {
 
-    private static AtomicInteger count = new AtomicInteger();
+    private static AtomicLong count = new AtomicLong();
 
     @Override
     protected void operateInternal() {
@@ -22,7 +22,7 @@ public class AtomicDemo1 extends BasicTest {
     }
 
     public static void main(String[] args) {
-        new AtomicDemo1().operate();
+        new AtomicLongDemo().operate();
         log.info("count: {}", count.get());
     }
 }
