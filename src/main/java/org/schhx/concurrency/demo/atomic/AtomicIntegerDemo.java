@@ -17,7 +17,7 @@ public class AtomicIntegerDemo extends BasicTest {
     private static AtomicInteger count = new AtomicInteger();
 
     @Override
-    protected void operateInternal() {
+    protected void operateInternal(int threadNum) {
         count.incrementAndGet();
     }
 

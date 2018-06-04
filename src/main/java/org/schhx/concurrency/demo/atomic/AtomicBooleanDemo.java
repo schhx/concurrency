@@ -17,7 +17,7 @@ public class AtomicBooleanDemo extends BasicTest {
     private static AtomicBoolean atomicBoolean = new AtomicBoolean(false);
 
     @Override
-    protected void operateInternal() {
+    protected void operateInternal(int threadNum) {
         if(atomicBoolean.compareAndSet(false, true)) {
             log.info("do something");
         }

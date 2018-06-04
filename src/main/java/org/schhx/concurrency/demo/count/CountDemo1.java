@@ -15,7 +15,7 @@ public class CountDemo1 extends BasicTest {
     private static int count = 0;
 
     @Override
-    protected void operateInternal() {
+    protected void operateInternal(int threadNum) {
         count++;
     }
 

@@ -17,7 +17,7 @@ public class LongAdderDemo extends BasicTest {
     private static LongAdder count = new LongAdder();
 
     @Override
-    protected void operateInternal() {
+    protected void operateInternal(int threadNum) {
         count.increment();
     }
 

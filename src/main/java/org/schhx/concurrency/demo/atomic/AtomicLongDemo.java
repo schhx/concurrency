@@ -17,7 +17,7 @@ public class AtomicLongDemo extends BasicTest {
     private static AtomicLong count = new AtomicLong();
 
     @Override
-    protected void operateInternal() {
+    protected void operateInternal(int threadNum) {
         count.incrementAndGet();
     }
 

@@ -14,9 +14,9 @@ import java.util.concurrent.Semaphore;
 @Slf4j
 public abstract class BasicTest {
 
-    private static int clientTotal = 5000;
+    protected static int clientTotal = 5000;
 
-    private static int threadTotal = 50;
+    protected static int threadTotal = 50;
 
     protected void operate() {
         try {
@@ -24,10 +24,11 @@ public abstract class BasicTest {
             final Semaphore semaphore = new Semaphore(threadTotal);
             final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
             for (int i = 0; i < clientTotal; i++) {
+                final int threadNum = i;
                 executorService.execute(() -> {
                     try {
                         semaphore.acquire();
-                        operateInternal();
+                        operateInternal(threadNum);
                         semaphore.release();
                     } catch (Exception e) {
                         log.error("exception", e);
@@ -44,6 +45,8 @@ public abstract class BasicTest {
 
     /**
      * 具体执行的方法
+     *
+     * @param threadNum
      */
-    protected abstract void operateInternal();
+    protected abstract void operateInternal(int threadNum);
 }
